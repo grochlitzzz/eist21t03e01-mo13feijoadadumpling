@@ -11,7 +11,5 @@ public class Shot {
 	}
 	
 	public void travel() {}
-	
-	
 
 }
