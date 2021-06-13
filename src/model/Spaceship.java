@@ -1,4 +1,4 @@
-package model.spaceship;
+package model;
 
 import controller.shot.Shot;
 
