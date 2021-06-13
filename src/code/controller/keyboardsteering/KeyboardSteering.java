@@ -1,22 +1,28 @@
 package code.controller.keyboardsteering;
 
-import code.model.Spaceship;
+import code.controller.shot.Shot;
+import code.model.PlayerSpaceship;
 import code.view.GameView;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class KeyboardSteering implements KeyListener {
+
 	private GameView gameView;
-	private Spaceship PlayerSpaceship;
+	private PlayerSpaceship playerSpaceship;
 	
 	public void moveLeft() {
-
+		playerSpaceship.move(gameBoardSize, PlayerSpaceship.LEFT);
 	}
 	
-	public void moveRight() {}
+	public void moveRight() {
+		playerSpaceship.move(gameBoardSize, PlayerSpaceship.RIGHT);
+	}
 	
-	public void spaceBar() {}
+	public void spaceBar() {
+		playerSpaceship.shoot(Shot.UP);
+	}
 
 	//Shoot when space bar is pressed
 	@Override
