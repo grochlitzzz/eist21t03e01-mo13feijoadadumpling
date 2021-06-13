@@ -1,11 +1,11 @@
-package controller.gamecontroller;
+package code.controller.gamecontroller;
 import java.util.List;
 
-import controller.audio.*;
-import view.gameview.*;
-import controller.keyboardsteering.*;
-import model.spaceship.*;
-import controller.shot.*;
+import code.controller.audio.*;
+import code.model.Spaceship;
+import code.view.GameView;
+import code.controller.keyboardsteering.*;
+import code.controller.shot.*;
 
 
 

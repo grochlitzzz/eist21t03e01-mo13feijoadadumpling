@@ -1,6 +1,6 @@
-package controller.keyboardsteering;
+package code.controller.keyboardsteering;
 
-import view.gameview.GameView;
+import code.view.GameView;
 
 public class KeyboardSteering {
 	

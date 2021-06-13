@@ -1,10 +1,10 @@
-package view.gameview;
-import model.spaceship.Spaceship;
-import controller.gamecontroller.*;
+package code.view;
+import code.model.Spaceship;
+import code.controller.gamecontroller.*;
 
 import java.util.List;
 
-import controller.shot.Shot;
+import code.controller.shot.Shot;
 
 public class GameView {
 	

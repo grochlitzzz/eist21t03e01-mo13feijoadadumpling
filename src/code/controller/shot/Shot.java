@@ -1,6 +1,6 @@
-package controller.shot;
+package code.controller.shot;
 
-import model.spaceship.Spaceship;
+import code.model.Spaceship;
 
 public class Shot {
 	

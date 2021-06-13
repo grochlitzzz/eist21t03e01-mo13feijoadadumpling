@@ -1,3 +1,5 @@
+package code;
+
 import java.util.Locale;
 import java.util.Objects;
 
@@ -47,6 +49,6 @@ public class Dimension2D {
 
 	@Override
 	public String toString() {
-		return String.format(Locale.ROOT, "Dimension2D [width=%.2f, height=%.2f]", width, height);
+		return String.format(Locale.ROOT, "code.Dimension2D [width=%.2f, height=%.2f]", width, height);
 	}
 }

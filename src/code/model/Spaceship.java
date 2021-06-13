@@ -1,6 +1,8 @@
-package model;
+package code.model;
 
-import controller.shot.Shot;
+import code.Dimension2D;
+import code.Point2D;
+import code.controller.shot.Shot;
 
 public abstract class Spaceship {
 

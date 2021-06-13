@@ -1,4 +1,4 @@
-package controller.audio;
+package code.controller.audio;
 
 
 public interface AudioPlayer {
