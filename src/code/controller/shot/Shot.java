@@ -9,8 +9,8 @@ public class Shot {
 	private static final int DEFAULT_SHOT_WIDTH = 50; // YET TO DEFINE
 	private static final int DEFAULT_SHOT_HEIGHT = 25; // YET TO DEFINE
 
-	private static final int UP = 1;
-	private static final int DOWN = 0;
+	public static final int UP = 1;
+	public static final int DOWN = 0;
 
 	private Spaceship spaceship; // DO WE NEED THIS?
 	private String iconLocation;
