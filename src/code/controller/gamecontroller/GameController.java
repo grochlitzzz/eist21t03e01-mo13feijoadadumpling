@@ -10,7 +10,6 @@ import code.controller.shot.*;
 
 
 public class GameController {
-
 	private AudioPlayer audioPlayer;
 	
 	private GameView gameView;
