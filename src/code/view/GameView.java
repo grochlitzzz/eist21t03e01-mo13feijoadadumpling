@@ -1,4 +1,5 @@
 package code.view;
+
 import code.model.Spaceship;
 import code.controller.gamecontroller.*;
 

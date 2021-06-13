@@ -3,13 +3,13 @@ import java.util.List;
 
 import code.controller.audio.*;
 import code.model.Spaceship;
-import code.view.GameView;
 import code.controller.keyboardsteering.*;
 import code.controller.shot.*;
-
+import code.view.GameView;
 
 
 public class GameController {
+
 	private AudioPlayer audioPlayer;
 	
 	private GameView gameView;
