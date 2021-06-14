@@ -5,6 +5,8 @@ import code.Point2D;
 
 public class EnemySpaceship extends Spaceship {
 
+    private boolean toBeRemoved = false;
+
     protected EnemySpaceship(Dimension2D gameBoardSize, Point2D position) {
         super(gameBoardSize, position);
         setLives(1);

@@ -64,7 +64,7 @@ public class Shot {
 
 		// calculate position in case the boarder of the game board has been reached
 		if (newY < 0 || newY + this.size.getHeight() > maxY) {
-			// delete shot
+			// delete shot gameboar.list.delete(this)
 		}
 		// set coordinates
 		this.position = new Point2D(this.position.getX(), newY);

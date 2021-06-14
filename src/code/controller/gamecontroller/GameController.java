@@ -27,7 +27,14 @@ public class GameController {
 	public void playMusic() {}
 	
 	public void stopMusic() {}
-	
-	
+
+	public void update() {
+		moveEverything();
+		deleteEverything();
+	}
+
+	public void moveEverything() {}
+
+	public void deleteEverything() {}
 
 }
