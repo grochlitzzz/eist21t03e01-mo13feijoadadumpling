@@ -18,6 +18,7 @@ public class Shot {
 	private Point2D position;
 	private int speed = 10;
 	private int direction;
+	private boolean toBeRemoved = false;
 
 	public Shot(int direction) {
 		this.direction = direction;
@@ -64,7 +65,7 @@ public class Shot {
 
 		// calculate position in case the boarder of the game board has been reached
 		if (newY < 0 || newY + this.size.getHeight() > maxY) {
-			// delete shot gameboar.list.delete(this)
+			toBeRemoved = true;
 		}
 		// set coordinates
 		this.position = new Point2D(this.position.getX(), newY);
@@ -76,9 +77,12 @@ public class Shot {
 
 	public void setIconLocation(String iconLocation) {
 		if (iconLocation == null) {
-			throw new NullPointerException("The image of a spaceship cannot be null.");
+			throw new NullPointerException("The image of a shot cannot be null.");
 		}
 		this.iconLocation = iconLocation;
 	}
 
+	public boolean toBeRemoved() {
+		return toBeRemoved;
+	}
 }

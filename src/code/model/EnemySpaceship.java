@@ -7,9 +7,12 @@ public class EnemySpaceship extends Spaceship {
 
     private boolean toBeRemoved = false;
 
-    protected EnemySpaceship(Dimension2D gameBoardSize, Point2D position) {
+    public EnemySpaceship(Dimension2D gameBoardSize, Point2D position) {
         super(gameBoardSize, position);
         setLives(1);
     }
 
+    public boolean toBeRemoved() {
+        return toBeRemoved;
+    }
 }
