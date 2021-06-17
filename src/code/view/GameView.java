@@ -1,11 +1,13 @@
 package code.view;
 
 import code.Dimension2D;
+import code.GameOutcome;
 import code.Point2D;
 import code.controller.gamecontroller.GameController;
 import code.controller.keyboardsteering.KeyboardSteering;
 import code.controller.audio.AudioPlayer;
 import code.controller.shot.Shot;
+import code.model.PlayerSpaceship;
 import code.model.Spaceship;
 import javafx.application.Platform;
 import javafx.scene.canvas.Canvas;
@@ -85,22 +87,22 @@ public class GameView extends Canvas {
 		this.gameController.setAudioPlayer(new AudioPlayer());
 		widthProperty().set(size.getWidth());
 		heightProperty().set(size.getHeight());
-		this.keyboardSteering = new KeyboardSteering(this, this.gameController.getPlayerCar());
+		this.keyboardSteering = new KeyboardSteering(this, (PlayerSpaceship) this.gameController.getPlayerShip());
 	}
 
 	private void setupImageCache() {
 		this.imageCache = new HashMap<>();
-		this.imageCache.put(BACKGROUND_IMAGE, getImage(BACKGROUND_IMAGE));
-		for (Car car : this.gameController.getCars()) {
+//		this.imageCache.put(BACKGROUND_IMAGE, getImage(BACKGROUND_IMAGE));
+		for (Spaceship car : this.gameController.getSpaceships()) {
 			String imageLocation = car.getIconLocation();
 			this.imageCache.computeIfAbsent(imageLocation, this::getImage);
 		}
-		String playerImageLocation = this.gameController.getPlayerCar().getIconLocation();
+		String playerImageLocation = this.gameController.getPlayerShip().getIconLocation();
 		this.imageCache.put(playerImageLocation, getImage(playerImageLocation));
 	}
 
 	public void updateImageCache() {
-		String playerImageLocation = this.gameController.getPlayerCar().getIconLocation();
+		String playerImageLocation = this.gameController.getPlayerShip().getIconLocation();
 		this.imageCache.put(playerImageLocation, getImage(playerImageLocation));
 	}
 

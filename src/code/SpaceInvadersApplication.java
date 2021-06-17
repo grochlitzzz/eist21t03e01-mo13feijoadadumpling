@@ -1,5 +1,7 @@
 package code;
 
+import code.view.GameToolBar;
+import code.view.GameView;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -30,20 +32,20 @@ public class SpaceInvadersApplication extends Application {
     public void start(Stage primaryStage) {
         // the tool bar object with start and stop buttons
         GameToolBar toolBar = new GameToolBar();
-        GameBoardUI gameBoardUI = new GameBoardUI(toolBar);
-        toolBar.initializeActions(gameBoardUI);
+        GameView gameView = new GameView(toolBar);
+        toolBar.initializeActions(gameView);
 
-        Pane gridLayout = createLayout(gameBoardUI, toolBar);
+        Pane gridLayout = createLayout(gameView, toolBar);
 
         // scene and stages
         Scene scene = new Scene(gridLayout);
-        primaryStage.setTitle("Bumpers");
+        primaryStage.setTitle("Space Invaders");
         primaryStage.setScene(scene);
-        primaryStage.setOnCloseRequest(closeEvent -> gameBoardUI.stopGame());
+        primaryStage.setOnCloseRequest(closeEvent -> gameView.stopGame());
         primaryStage.show();
     }
 
-    private static Pane createLayout(GameBoardUI gameBoardUI, GameToolBar toolBar) {
+    private static Pane createLayout(GameView gameView, GameToolBar toolBar) {
         // GridPanes are divided into columns and rows, like a table
         GridPane gridLayout = new GridPane();
         gridLayout.setPrefSize(GRID_LAYOUT_PREF_WIDTH, GRID_LAYOUT_PREF_HEIGHT);
@@ -52,7 +54,7 @@ public class SpaceInvadersApplication extends Application {
 
         // add all components to the gridLayout
         // second parameter is column index, second parameter is row index of grid
-        gridLayout.add(gameBoardUI, 0, 1);
+        gridLayout.add(gameView, 0, 1);
         gridLayout.add(toolBar, 0, 0);
         return gridLayout;
     }

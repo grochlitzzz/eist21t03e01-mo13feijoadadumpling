@@ -8,9 +8,12 @@ public class PlayerSpaceship extends Spaceship {
     public static final int RIGHT = 0;
     public static final int LEFT = 1;
 
+    private static final String PLAYER  = "11.jpg";
+
     public PlayerSpaceship(Dimension2D gameBoardSize, Point2D position) {
         super(gameBoardSize, position);
         setLives(3);
+        setIconLocation(PLAYER);
     }
 
     public void move(Dimension2D gameBoardSize, int direction) {

@@ -1,16 +1,26 @@
 package code.controller.keyboardsteering;
 
+import code.Dimension2D;
 import code.controller.shot.Shot;
 import code.model.PlayerSpaceship;
+import code.model.Spaceship;
 import code.view.GameView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+//import java.awt.event.KeyEvent;
+//import java.awt.event.KeyListener;
 
-public class KeyboardSteering implements KeyListener {
+public class KeyboardSteering {
 
-	private GameView gameView;
-	private PlayerSpaceship playerSpaceship;
+	private final PlayerSpaceship playerSpaceship;
+	private final Dimension2D gameBoardSize;
+
+	public KeyboardSteering(GameView gameView, PlayerSpaceship spaceship) {
+		this.playerSpaceship = spaceship;
+		this.gameBoardSize = gameView.getGameController().getSize();
+		gameView.addEventHandler(KeyEvent.KEY_PRESSED, this::keyPressed);
+	}
 	
 	public void moveLeft() {
 		playerSpaceship.move(gameBoardSize, PlayerSpaceship.LEFT);
@@ -25,25 +35,22 @@ public class KeyboardSteering implements KeyListener {
 	}
 
 	//Shoot when space bar is pressed
-	@Override
 	public void keyTyped(KeyEvent e) {
-		int key = e.getKeyCode();
-		if (key == KeyEvent.VK_SPACE)
+		KeyCode key = e.getCode();
+		if (key.equals(KeyCode.SPACE))
 			spaceBar();
 	}
 
 	//Right and Left movement with Arrow Keys + A/D-Keys
-	@Override
 	public void keyPressed(KeyEvent e) {
-		int key = e.getKeyCode();
-		if (key == KeyEvent.VK_D || key == KeyEvent.VK_RIGHT)
+		KeyCode key = e.getCode();
+		if (key.equals(KeyCode.D) || key.equals(KeyCode.KP_RIGHT))
 			moveRight();
-		if (key == KeyEvent.VK_A || key == KeyEvent.VK_LEFT)
+		if (key.equals(KeyCode.A) || key.equals(KeyCode.KP_LEFT))
 			moveLeft();
 	}
 
 	//Nothing happens when a key is released
-	@Override
 	public void keyReleased(KeyEvent e) {
 	}
 }

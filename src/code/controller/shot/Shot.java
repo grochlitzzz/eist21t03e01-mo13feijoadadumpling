@@ -6,8 +6,8 @@ import code.model.Spaceship;
 
 public class Shot {
 
-	private static final int DEFAULT_SHOT_WIDTH = 50; // YET TO DEFINE
-	private static final int DEFAULT_SHOT_HEIGHT = 25; // YET TO DEFINE
+	private static final int DEFAULT_SHOT_WIDTH = 5; // YET TO DEFINE
+	private static final int DEFAULT_SHOT_HEIGHT = 2; // YET TO DEFINE
 
 	public static final int UP = 1;
 	public static final int DOWN = 0;
@@ -20,8 +20,11 @@ public class Shot {
 	private int direction;
 	private boolean toBeRemoved = false;
 
+	private static final String SHOT = "Dot.png";
+
 	public Shot(int direction) {
 		this.direction = direction;
+		setIconLocation(SHOT);
 	}
 
 	public void setPosition(Dimension2D gameBoardSize, Point2D position) {
@@ -82,7 +85,15 @@ public class Shot {
 		this.iconLocation = iconLocation;
 	}
 
+	public void remove() {
+		toBeRemoved = true;
+	}
+
 	public boolean toBeRemoved() {
 		return toBeRemoved;
+	}
+
+	public int getDirection() {
+		return direction;
 	}
 }

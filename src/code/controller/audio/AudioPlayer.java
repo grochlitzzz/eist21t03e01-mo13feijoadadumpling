@@ -14,9 +14,9 @@ import javafx.scene.media.MediaPlayer;
 public class AudioPlayer implements AudioPlayerInterface {
 
     //TODO: find sound files
-    private static final String BACKGROUND_MUSIC_FILE = "";
-    private static final String SHOT_SOUND_FILE = "";
-    private static final String HIT_SOUND_FILE = "";
+    private static final String BACKGROUND_MUSIC_FILE = "back.wav";
+    private static final String SHOT_SOUND_FILE = "shot.wav";
+    private static final String HIT_SOUND_FILE = "hit.wav";
 
     private static final double SHOT_SOUND_VOLUME = 0.5;
     private static final double HIT_SOUND_VOLUME = 0.5;

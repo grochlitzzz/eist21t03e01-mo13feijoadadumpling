@@ -80,4 +80,13 @@ public abstract class Spaceship {
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
+
+	public void crunch() {
+		this.crunched = true;
+		this.speed = 0;
+	}
+
+	public boolean isCrunched() {
+		return this.crunched;
+	}
 }
