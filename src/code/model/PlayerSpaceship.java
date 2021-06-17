@@ -8,7 +8,7 @@ public class PlayerSpaceship extends Spaceship {
     public static final int RIGHT = 0;
     public static final int LEFT = 1;
 
-    private static final String PLAYER  = "11.jpg";
+    private static final String PLAYER  = "PlayerSpaceship.png";
 
     public PlayerSpaceship(Dimension2D gameBoardSize, Point2D position) {
         super(gameBoardSize, position);

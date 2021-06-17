@@ -8,7 +8,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class EnemySpaceship extends Spaceship {
 
-    private static final String ENEMY = "enemy.gif";
+    private static final String ENEMY = "EnemySpaceship.png";
     private final double speed = 0.1;
 
     public EnemySpaceship(Dimension2D gameBoardSize, Point2D position) {

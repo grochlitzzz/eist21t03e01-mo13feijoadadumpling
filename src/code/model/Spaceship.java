@@ -25,7 +25,7 @@ public abstract class Spaceship {
 	}
 	
 	public Shot shoot(int direction) {
-		Point2D mid_point = new Point2D(this.getPosition().getX() + size.getWidth()/2,this.getPosition().getY());
+		Point2D mid_point = new Point2D(this.getPosition().getX() + this.getSize().getWidth()/2,this.getPosition().getY());
 		return new Shot(direction, mid_point);
 	}
 	
