@@ -31,20 +31,7 @@ public abstract class Spaceship {
 		Shot shot = new Shot(direction);
 	}
 	
-	public void move(Dimension2D gameBoardSize) {
-		double maxY = gameBoardSize.getHeight();
-		// calculate delta between old coordinates and new ones based on speed and
-		// direction
-		double deltaY = this.speed;
-		double newY = this.position.getY() + deltaY;
-
-		// calculate position in case the boarder of the game board has been reached
-		if (newY < 0 || newY + this.size.getHeight() > maxY) {
-			// delete shot
-		}
-		// set coordinates
-		this.position = new Point2D(this.position.getX(), newY);
-	}
+	public void move(Dimension2D gameBoardSize) {}
 	
 	public void setLives(int lives) {
 		this.lives = lives;

@@ -12,27 +12,22 @@ public class PlayerSpaceship extends Spaceship {
 
     public PlayerSpaceship(Dimension2D gameBoardSize, Point2D position) {
         super(gameBoardSize, position);
+        this.setSpeed(10);
         setLives(3);
         setIconLocation(PLAYER);
     }
 
     public void move(Dimension2D gameBoardSize, int direction) {
-        if (direction == LEFT) {
-            setSpeed(Math.abs(getSpeed()) * -1);
-        } else if (direction == RIGHT) {
-            setSpeed(Math.abs(getSpeed()));
-        }
-        double maxX = gameBoardSize.getWidth();
-        // calculate delta between old coordinates and new ones based on speed and
-        // direction
-        double deltaX = this.getSpeed();
-        double newX = this.getPosition().getX() + deltaX;
+        double maxX = gameBoardSize.getWidth() - 25;
+        double deltaX = direction == LEFT? -this.getSpeed(): this.getSpeed();
+        double currentX = this.getPosition().getX();
+        double newX = currentX + deltaX;
 
         // calculate position in case the boarder of the game board has been reached
-        if (newX < 0 || newX + this.getSize().getWidth() > newX) {
-            // delete shot
+        if (newX < 25 || newX > maxX) {
+            newX = currentX;
         }
         // set coordinates
-        this.setPosition(gameBoardSize, new Point2D(newX, this.getPosition().getX()));
+        this.setPosition(gameBoardSize, new Point2D(newX, this.getPosition().getY()));
     }
 }

@@ -5,9 +5,6 @@ import javafx.scene.control.Alert.AlertType;
 
 import java.util.Optional;
 
-/**
- * This class visualizes the tool bar with start and stop buttons above the game board.
- */
 public class GameToolBar extends ToolBar {
 	private final Button start;
 	private final Button stop;
@@ -22,9 +19,6 @@ public class GameToolBar extends ToolBar {
 		getItems().addAll(this.start, new Separator(), this.stop, new Separator(), this.info);
 	}
 
-	/**
-	 * Initializes the actions of the toolbar buttons.
-	 */
 	public void initializeActions(GameView gameView) {
 		this.start.setOnAction(event -> gameView.startGame());
 
@@ -35,8 +29,6 @@ public class GameToolBar extends ToolBar {
 			Alert alert = new Alert(AlertType.CONFIRMATION, "Do you really want to stop the game?", ButtonType.YES,
 					ButtonType.NO);
 			alert.setTitle("Stop Game Confirmation");
-			// By default the header additionally shows the Alert Type (Confirmation)
-			// but we want to disable this to only show the question
 			alert.setHeaderText("");
 
 			Optional<ButtonType> result = alert.showAndWait();
@@ -65,12 +57,6 @@ public class GameToolBar extends ToolBar {
 		info.setFocusTraversable(false);
 	}
 
-	/**
-	 * Updates the status of the toolbar. This will for example enable or disable
-	 * buttons.
-	 *
-	 * @param running true if game is running, false otherwise
-	 */
 	public void updateToolBarStatus(boolean running) {
 		this.start.setDisable(running);
 		this.stop.setDisable(!running);
