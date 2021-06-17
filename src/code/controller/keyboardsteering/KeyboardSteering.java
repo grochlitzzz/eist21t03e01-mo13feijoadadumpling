@@ -22,16 +22,15 @@ public class KeyboardSteering {
 		this.gameBoardSize = gameView.getGameController().getSize();
 //		gameView.addEventHandler(KeyEvent.KEY_PRESSED, this::keyPressed);
 		gameView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-			@Override
-			public void handle(KeyEvent keyEvent) {
-				KeyCode key = keyEvent.getCode();
-				if (key == KeyCode.D || key == KeyCode.KP_RIGHT)
-					System.out.println("pressed D");
-				moveRight();
-				if (key == KeyCode.A || key == KeyCode.KP_LEFT)
-					moveLeft();
-				if (key == KeyCode.SPACE)
-					spaceBar();
+			
+            @Override
+            public void handle(KeyEvent event) {
+            	if (event.getCode().getCode() == 68 || event.getCode().getCode() == 39)
+        			moveRight();
+            	else if (event.getCode().getCode() == 65 || event.getCode().getCode() == 37)
+        			moveLeft();
+            	else if(event.getCode().getCode() == 32)
+            		spaceBar();
 			}
 		});
 	}
