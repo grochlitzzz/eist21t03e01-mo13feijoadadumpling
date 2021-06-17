@@ -17,11 +17,9 @@ public class EnemySpaceship extends Spaceship {
         setIconLocation(ENEMY);
     }
 
-    //TODO: automove and shot
     public void move(Dimension2D gameBoardSize) {
         double maxY = gameBoardSize.getHeight() - 100;
-        double deltaY = this.speed;
-        double newY = this.getPosition().getY() + deltaY;
+        double newY = this.getPosition().getY() + speed;
         if (newY > maxY) {
             this.setSpeed(0);
             newY = maxY;
@@ -31,7 +29,7 @@ public class EnemySpaceship extends Spaceship {
 
     @Override
     public Shot shoot(int direction) {
-        int shoted = ThreadLocalRandom.current().nextInt(0, 150);
-        return shoted == 99? new Shot(direction, this.getPosition()): null;
+        int shot = ThreadLocalRandom.current().nextInt(0, 150);
+        return shot == 99? new Shot(direction, this.getPosition()): null;
     }
 }

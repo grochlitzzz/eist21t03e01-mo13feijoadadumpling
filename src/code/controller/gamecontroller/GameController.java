@@ -101,20 +101,12 @@ public class GameController {
 		this.audioPlayer.stopBackgroundMusic();
 	}
 
-
-//	public List<Car> getLoserCars() {
-//		return this.loserCars;
-//	}
-
-
 	public void moveEverything() {
 		for (Spaceship spaceship : this.spaceships) {
 			spaceship.move(size);
 		}
 		this.player.getSpaceship().move(size);
 		List<Spaceship> shipToRemove = new ArrayList<>();
-		List<Shot> shotToRemove = new ArrayList<>();
-		// iterate through all cars (except player car) and check if it is crunched
 
 		for (Shot shot: shots) {
 			shot.travel(getSize());
@@ -125,11 +117,10 @@ public class GameController {
 					}
 					if (shot.detectCollision(spaceship)) {
 						System.out.println("Enemy shot down!");
-//					this.audioPlayer.playBuffSound();
+						this.audioPlayer.playHitSound();
 						spaceship.crunch();
 						shipToRemove.add(spaceship);
-						shotToRemove.add(shot);
-//					shot.remove();
+						shot.remove();
 						break;
 					}
 				}
@@ -149,15 +140,9 @@ public class GameController {
 				break;
 			}
 		}
-
 		// remove crunched spaceships and shots
-		for (Spaceship spaceship: shipToRemove) {
-			spaceships.remove(spaceship);
-		}
-
-		for (Shot shot: shotToRemove) {
-			shots.remove(shot);
-		}
+		spaceships.removeAll(shipToRemove);
+		shots.removeIf(Shot::toBeRemoved);
 	}
 
 	public void randomShoot() {

@@ -13,10 +13,10 @@ public class Shot {
 	public static final int DOWN = 0;
 
 	private String iconLocation;
-	private Dimension2D size = new Dimension2D(DEFAULT_SHOT_WIDTH, DEFAULT_SHOT_HEIGHT);
+	private final Dimension2D size = new Dimension2D(DEFAULT_SHOT_WIDTH, DEFAULT_SHOT_HEIGHT);
 	private Point2D position;
 	private int speed = 1;
-	private int direction;
+	private final int direction;
 	private boolean toBeRemoved = false;
 
 	private static final String SHOT = "Dot.png";
