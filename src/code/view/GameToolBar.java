@@ -9,14 +9,18 @@ public class GameToolBar extends ToolBar {
 	private final Button start;
 	private final Button stop;
 	private final Button info;
+	private final Button casual;
+	private final Button fury;
 
 	public GameToolBar() {
 		this.start = new Button("Start");
 		this.stop = new Button("Stop");
 		this.info = new Button("Info");
-		// the game is stopped initially
+		this.casual = new Button("Casual");
+		this.fury = new Button("Fury");
 		updateToolBarStatus(false);
-		getItems().addAll(this.start, new Separator(), this.stop, new Separator(), this.info);
+		getItems().addAll(this.start, new Separator(), this.stop,
+				new Separator(), this.info, new Separator(), this.casual, this.fury);
 	}
 
 	public void initializeActions(GameView gameView) {
@@ -52,15 +56,35 @@ public class GameToolBar extends ToolBar {
 			alert.showAndWait();
 		});
 
+		this.casual.setOnAction(event -> {
+			gameView.getGameController().setFury(false);
+			gameView.getPolicy().configMove();
+			updateModeStatus(false);
+		});
+
+		this.fury.setOnAction(event -> {
+			gameView.getGameController().setFury(true);
+			gameView.getPolicy().configMove();
+			updateModeStatus(true);
+		});
+
 		start.setFocusTraversable(false);
 		stop.setFocusTraversable(false);
 		info.setFocusTraversable(false);
+		casual.setFocusTraversable(false);
+		fury.setFocusTraversable(false);
 	}
 
 	public void updateToolBarStatus(boolean running) {
 		this.start.setDisable(running);
 		this.stop.setDisable(!running);
 	}
+
+	public void updateModeStatus(boolean isFury) {
+		this.casual.setDisable(!isFury);
+		this.fury.setDisable(isFury);
+	}
+
 
 
 }

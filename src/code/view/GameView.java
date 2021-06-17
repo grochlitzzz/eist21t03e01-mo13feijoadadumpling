@@ -3,6 +3,7 @@ package code.view;
 import code.Dimension2D;
 import code.GameOutcome;
 import code.Point2D;
+import code.Policy;
 import code.controller.gamecontroller.GameController;
 import code.controller.keyboardsteering.KeyboardSteering;
 import code.controller.audio.AudioPlayer;
@@ -57,6 +58,8 @@ public class GameView extends Canvas {
 
 	private HashMap<String, Image> imageCache;
 
+	private Policy policy;
+
 	public GameView(GameToolBar gameToolBar) {
 		this.gameToolBar = gameToolBar;
 		setup();
@@ -78,6 +81,7 @@ public class GameView extends Canvas {
 		setupGameBoard();
 		setupImageCache();
 		this.gameToolBar.updateToolBarStatus(false);
+		this.gameToolBar.updateModeStatus(false);
 		paint();
 	}
 
@@ -85,6 +89,7 @@ public class GameView extends Canvas {
 		Dimension2D size = getPreferredSize();
 		this.gameController = new GameController(size);
 		this.gameController.setAudioPlayer(new AudioPlayer());
+		this.policy = new Policy(gameController);
 		widthProperty().set(size.getWidth());
 		heightProperty().set(size.getHeight());
 		this.keyboardSteering = new KeyboardSteering(this, (PlayerSpaceship) this.gameController.getPlayerShip());
@@ -132,6 +137,7 @@ public class GameView extends Canvas {
 		if (!this.gameController.isRunning()) {
 			this.gameController.startGame();
 			this.gameToolBar.updateToolBarStatus(true);
+			this.gameToolBar.updateModeStatus(false);
 			startTimer();
 			paint();
 		}
@@ -224,5 +230,9 @@ public class GameView extends Canvas {
 			alert.showAndWait();
 			this.setup();
 		});
+	}
+
+	public Policy getPolicy() {
+		return policy;
 	}
 }

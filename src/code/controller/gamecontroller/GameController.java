@@ -24,6 +24,7 @@ public class GameController {
 	private final Dimension2D size;
 	private boolean running;
 	private GameOutcome gameOutcome = GameOutcome.OPEN;
+	private boolean isFury = false;
 
 	public GameController(Dimension2D size) {
 		this.size = size;
@@ -161,5 +162,13 @@ public class GameController {
 			}
 		}
 		return true;
+	}
+
+	public boolean isFury() {
+		return isFury;
+	}
+
+	public void setFury(boolean fury) {
+		isFury = fury;
 	}
 }

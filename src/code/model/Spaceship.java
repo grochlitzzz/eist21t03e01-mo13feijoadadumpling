@@ -9,7 +9,7 @@ public abstract class Spaceship {
 	private static final int DEFAULT_SPACESHIP_WIDTH = 50; // YET TO DEFINE
 	private static final int DEFAULT_SPACESHIP_HEIGHT = 25; // YET TO DEFINE
 
-	private int speed;
+	private double speed;
 	private boolean crunched;
 	private int lives;
 	private String iconLocation;
@@ -58,7 +58,7 @@ public abstract class Spaceship {
 		this.iconLocation = iconLocation;
 	}
 
-	public int getSpeed() {
+	public double getSpeed() {
 		return speed;
 	}
 
@@ -74,4 +74,5 @@ public abstract class Spaceship {
 	public boolean isCrunched() {
 		return this.crunched;
 	}
+
 }
