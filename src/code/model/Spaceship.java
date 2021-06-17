@@ -25,7 +25,8 @@ public abstract class Spaceship {
 	}
 	
 	public Shot shoot(int direction) {
-		return new Shot(direction, position);
+		Point2D mid_point = new Point2D(this.getPosition().getX() + size.getWidth()/2,this.getPosition().getY());
+		return new Shot(direction, mid_point);
 	}
 	
 	public void move(Dimension2D gameBoardSize) {}
