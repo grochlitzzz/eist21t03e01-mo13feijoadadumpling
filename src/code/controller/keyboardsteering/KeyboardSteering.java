@@ -5,6 +5,7 @@ import code.controller.shot.Shot;
 import code.model.PlayerSpaceship;
 import code.model.Spaceship;
 import code.view.GameView;
+import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
@@ -19,7 +20,20 @@ public class KeyboardSteering {
 	public KeyboardSteering(GameView gameView, PlayerSpaceship spaceship) {
 		this.playerSpaceship = spaceship;
 		this.gameBoardSize = gameView.getGameController().getSize();
-		gameView.addEventHandler(KeyEvent.KEY_PRESSED, this::keyPressed);
+//		gameView.addEventHandler(KeyEvent.KEY_PRESSED, this::keyPressed);
+		gameView.setOnKeyPressed(new EventHandler<KeyEvent>() {
+			@Override
+			public void handle(KeyEvent keyEvent) {
+				KeyCode key = keyEvent.getCode();
+				if (key == KeyCode.D || key == KeyCode.KP_RIGHT)
+					System.out.println("pressed D");
+				moveRight();
+				if (key == KeyCode.A || key == KeyCode.KP_LEFT)
+					moveLeft();
+				if (key == KeyCode.SPACE)
+					spaceBar();
+			}
+		});
 	}
 	
 	public void moveLeft() {
@@ -34,21 +48,25 @@ public class KeyboardSteering {
 		playerSpaceship.shoot(Shot.UP);
 	}
 
-	//Shoot when space bar is pressed
-	public void keyTyped(KeyEvent e) {
-		KeyCode key = e.getCode();
-		if (key.equals(KeyCode.SPACE))
-			spaceBar();
-	}
+//	//Shoot when space bar is pressed
+//	public void keyTyped(KeyEvent e) {
+//		KeyCode key = e.getCode();
+//		if (key == KeyCode.SPACE)
+//			spaceBar();
+//	}
+
 
 	//Right and Left movement with Arrow Keys + A/D-Keys
-	public void keyPressed(KeyEvent e) {
-		KeyCode key = e.getCode();
-		if (key.equals(KeyCode.D) || key.equals(KeyCode.KP_RIGHT))
-			moveRight();
-		if (key.equals(KeyCode.A) || key.equals(KeyCode.KP_LEFT))
-			moveLeft();
-	}
+//	public void keyPressed(KeyEvent e) {
+//		KeyCode key = e.getCode();
+//		if (key == KeyCode.D || key == KeyCode.KP_RIGHT)
+//			System.out.println("pressed D");
+//			moveRight();
+//		if (key == KeyCode.A || key == KeyCode.KP_LEFT)
+//			moveLeft();
+//		if (key == KeyCode.SPACE)
+//			spaceBar();
+//	}
 
 	//Nothing happens when a key is released
 	public void keyReleased(KeyEvent e) {

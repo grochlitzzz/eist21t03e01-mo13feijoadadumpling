@@ -59,6 +59,10 @@ public class GameToolBar extends ToolBar {
 			alert.setHeaderText("How to Play");
 			alert.showAndWait();
 		});
+
+		start.setFocusTraversable(false);
+		stop.setFocusTraversable(false);
+		info.setFocusTraversable(false);
 	}
 
 	/**
@@ -71,4 +75,6 @@ public class GameToolBar extends ToolBar {
 		this.start.setDisable(running);
 		this.stop.setDisable(!running);
 	}
+
+
 }
