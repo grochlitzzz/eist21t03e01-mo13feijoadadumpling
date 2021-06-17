@@ -9,12 +9,9 @@ public abstract class Spaceship {
 	private static final int DEFAULT_SPACESHIP_WIDTH = 50; // YET TO DEFINE
 	private static final int DEFAULT_SPACESHIP_HEIGHT = 25; // YET TO DEFINE
 
-	private int minSpeed;
-	private int maxSpeed;
 	private int speed;
 	private boolean crunched;
 	private int lives;
-	private boolean firstRow;
 	private String iconLocation;
 	private Point2D position;
 	private Dimension2D size = new Dimension2D(DEFAULT_SPACESHIP_WIDTH, DEFAULT_SPACESHIP_HEIGHT);
@@ -27,8 +24,8 @@ public abstract class Spaceship {
 		this.position = position;
 	}
 	
-	public void shoot(int direction) {
-		Shot shot = new Shot(direction);
+	public Shot shoot(int direction) {
+		return new Shot(direction, position);
 	}
 	
 	public void move(Dimension2D gameBoardSize) {}

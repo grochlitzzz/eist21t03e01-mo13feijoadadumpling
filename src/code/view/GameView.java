@@ -93,8 +93,8 @@ public class GameView extends Canvas {
 	private void setupImageCache() {
 		this.imageCache = new HashMap<>();
 //		this.imageCache.put(BACKGROUND_IMAGE, getImage(BACKGROUND_IMAGE));
-		for (Spaceship car : this.gameController.getSpaceships()) {
-			String imageLocation = car.getIconLocation();
+		for (Spaceship spaceship : this.gameController.getSpaceships()) {
+			String imageLocation = spaceship.getIconLocation();
 			this.imageCache.computeIfAbsent(imageLocation, this::getImage);
 		}
 		String playerImageLocation = this.gameController.getPlayerShip().getIconLocation();
@@ -102,8 +102,10 @@ public class GameView extends Canvas {
 	}
 
 	public void updateImageCache() {
-		String playerImageLocation = this.gameController.getPlayerShip().getIconLocation();
-		this.imageCache.put(playerImageLocation, getImage(playerImageLocation));
+		for (Shot shot : this.gameController.getShots()) {
+			String imageLocation = shot.getIconLocation();
+			this.imageCache.computeIfAbsent(imageLocation, this::getImage);
+		}
 	}
 
 	/**

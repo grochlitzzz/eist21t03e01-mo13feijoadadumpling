@@ -23,6 +23,5 @@ public class Player {
 
 	public void setup(Dimension2D gameBoardSize) {
 		spaceship.setPosition(gameBoardSize, spaceship.getPosition());
-//		spaceship.setDirection(START_DIRECTION);
 	}
 }

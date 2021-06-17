@@ -6,31 +6,27 @@ import code.model.Spaceship;
 
 public class Shot {
 
-	private static final int DEFAULT_SHOT_WIDTH = 5; // YET TO DEFINE
-	private static final int DEFAULT_SHOT_HEIGHT = 2; // YET TO DEFINE
+	private static final int DEFAULT_SHOT_WIDTH = 20; // YET TO DEFINE
+	private static final int DEFAULT_SHOT_HEIGHT = 20; // YET TO DEFINE
 
 	public static final int UP = 1;
 	public static final int DOWN = 0;
 
-	private Spaceship spaceship; // DO WE NEED THIS?
 	private String iconLocation;
 	private Dimension2D size = new Dimension2D(DEFAULT_SHOT_WIDTH, DEFAULT_SHOT_HEIGHT);
 	private Point2D position;
-	private int speed = 10;
+	private int speed = 1;
 	private int direction;
 	private boolean toBeRemoved = false;
 
 	private static final String SHOT = "Dot.png";
 
-	public Shot(int direction) {
+	public Shot(int direction, Point2D position) {
 		this.direction = direction;
+		this.position = position;
 		setIconLocation(SHOT);
 	}
 
-	public void setPosition(Dimension2D gameBoardSize, Point2D position) {
-		this.position = position;
-	}
-	
 	public boolean detectCollision(Spaceship spaceship) {
 		Point2D p1 = this.getPosition();
 		Dimension2D d1 = this.getSize();

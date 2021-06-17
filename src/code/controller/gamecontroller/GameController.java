@@ -80,6 +80,7 @@ public class GameController {
 
 	public void update() {
 		moveEverything();
+		randomShoot();
 	}
 
 	public void startGame() {
@@ -116,6 +117,7 @@ public class GameController {
 		// iterate through all cars (except player car) and check if it is crunched
 
 		for (Shot shot: shots) {
+			shot.travel(getSize());
 			if (shot.getDirection() == Shot.UP) {
 				for (Spaceship spaceship : spaceships) {
 					if (spaceship.isCrunched()) {
@@ -155,6 +157,15 @@ public class GameController {
 
 		for (Shot shot: shotToRemove) {
 			shots.remove(shot);
+		}
+	}
+
+	public void randomShoot() {
+		for (Spaceship spaceship: spaceships) {
+			Shot shot = spaceship.shoot(Shot.DOWN);
+			if (shot != null) {
+				shots.add(shot);
+			}
 		}
 	}
 

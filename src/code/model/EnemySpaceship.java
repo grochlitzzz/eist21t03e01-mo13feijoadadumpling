@@ -2,11 +2,14 @@ package code.model;
 
 import code.Dimension2D;
 import code.Point2D;
+import code.controller.shot.Shot;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 public class EnemySpaceship extends Spaceship {
 
     private static final String ENEMY = "enemy.gif";
-    private final double speed = 0.5;
+    private final double speed = 0.1;
 
     public EnemySpaceship(Dimension2D gameBoardSize, Point2D position) {
         super(gameBoardSize, position);
@@ -24,5 +27,11 @@ public class EnemySpaceship extends Spaceship {
             newY = maxY;
         }
         this.setPosition(gameBoardSize, new Point2D(this.getPosition().getX(), newY));
+    }
+
+    @Override
+    public Shot shoot(int direction) {
+        int shoted = ThreadLocalRandom.current().nextInt(0, 150);
+        return shoted == 99? new Shot(direction, this.getPosition()): null;
     }
 }
