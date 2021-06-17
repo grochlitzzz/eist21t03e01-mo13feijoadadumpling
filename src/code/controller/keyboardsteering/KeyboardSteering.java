@@ -21,6 +21,7 @@ public class KeyboardSteering {
 		this.playerSpaceship = spaceship;
 		this.gameBoardSize = gameView.getGameController().getSize();
 //		gameView.addEventHandler(KeyEvent.KEY_PRESSED, this::keyPressed);
+		gameView.setFocusTraversable(true);
 		gameView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			
             @Override

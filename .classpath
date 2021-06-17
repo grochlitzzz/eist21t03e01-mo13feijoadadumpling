@@ -21,5 +21,15 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/duduv/.m2/repository/org/openjfx/javafx-controls/16/javafx-controls-16-win.jar" sourcepath="C:/Users/duduv/.m2/repository/org/openjfx/javafx-controls/16/javafx-controls-16-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.openjfx"/>
+			<attribute name="maven.artifactId" value="javafx-controls"/>
+			<attribute name="maven.version" value="16"/>
+			<attribute name="maven.classifier" value="win"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
