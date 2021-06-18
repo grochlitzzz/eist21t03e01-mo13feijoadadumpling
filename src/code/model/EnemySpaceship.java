@@ -9,7 +9,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public class EnemySpaceship extends Spaceship {
 
     private static final String ENEMY = "EnemySpaceship.png";
-//    private static final String ENEMY = "13.jpg";
     private final double speed = 0.1;
     private MoveStrategy moveStrategy;
     private int direction;
@@ -29,7 +28,11 @@ public class EnemySpaceship extends Spaceship {
     @Override
     public Shot shoot(int direction) {
         int shot = ThreadLocalRandom.current().nextInt(0, 150);
-        return shot == 99? new Shot(direction, this.getPosition()): null;
+        if (shot == 1) {
+            Point2D mid_point = new Point2D(this.getPosition().getX() + this.getSize().getWidth()/2 - 5, this.getPosition().getY() + 10);
+            return new Shot(direction, mid_point);
+        }
+        return null;
     }
 
     public MoveStrategy getMoveStrategy() {

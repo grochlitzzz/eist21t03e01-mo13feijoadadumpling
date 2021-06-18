@@ -6,7 +6,7 @@ import code.controller.shot.Shot;
 
 public abstract class Spaceship {
 
-	private static final int DEFAULT_SPACESHIP_WIDTH = 50; // YET TO DEFINE
+	private static final int DEFAULT_SPACESHIP_WIDTH = 25; // YET TO DEFINE
 	private static final int DEFAULT_SPACESHIP_HEIGHT = 25; // YET TO DEFINE
 
 	private double speed;
@@ -25,7 +25,7 @@ public abstract class Spaceship {
 	}
 	
 	public Shot shoot(int direction) {
-		Point2D mid_point = new Point2D(this.getPosition().getX() + this.getSize().getWidth()/2,this.getPosition().getY());
+		Point2D mid_point = new Point2D(this.getPosition().getX() + this.getSize().getWidth()/2 - 5, this.getPosition().getY());
 		return new Shot(direction, mid_point);
 	}
 	

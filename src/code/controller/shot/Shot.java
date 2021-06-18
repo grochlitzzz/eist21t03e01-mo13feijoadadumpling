@@ -6,25 +6,21 @@ import code.model.Spaceship;
 
 public class Shot {
 
-	private static final int DEFAULT_SHOT_WIDTH = 20; // YET TO DEFINE
-	private static final int DEFAULT_SHOT_HEIGHT = 20; // YET TO DEFINE
+	private static final int DEFAULT_SHOT_WIDTH = 10;
+	private static final int DEFAULT_SHOT_HEIGHT = 10;
 
 	public static final int UP = 1;
 	public static final int DOWN = 0;
 
-	private String iconLocation;
 	private final Dimension2D size = new Dimension2D(DEFAULT_SHOT_WIDTH, DEFAULT_SHOT_HEIGHT);
 	private Point2D position;
 	private int speed = 1;
 	private final int direction;
 	private boolean toBeRemoved = false;
 
-	private static final String SHOT = "Dot.png";
-
 	public Shot(int direction, Point2D position) {
 		this.direction = direction;
 		this.position = position;
-		setIconLocation(SHOT);
 	}
 
 	public boolean detectCollision(Spaceship spaceship) {
@@ -68,17 +64,6 @@ public class Shot {
 		}
 		// set coordinates
 		this.position = new Point2D(this.position.getX(), newY);
-	}
-
-	public String getIconLocation() {
-		return this.iconLocation;
-	}
-
-	public void setIconLocation(String iconLocation) {
-		if (iconLocation == null) {
-			throw new NullPointerException("The image of a shot cannot be null.");
-		}
-		this.iconLocation = iconLocation;
 	}
 
 	public void remove() {

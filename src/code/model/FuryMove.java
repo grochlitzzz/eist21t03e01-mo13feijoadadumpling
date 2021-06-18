@@ -16,8 +16,8 @@ public class FuryMove implements MoveStrategy {
         double maxY = gameBoardSize.getHeight();
 
         // calculate delta between old coordinates and new ones based on speed and
-        double deltaX = 10 * spaceship.getSpeed() * Math.sin(Math.toRadians(direction));
-        double deltaY = 10 * spaceship.getSpeed() * Math.cos(Math.toRadians(direction));
+        double deltaX = 20 * spaceship.getSpeed() * Math.sin(Math.toRadians(direction));
+        double deltaY = 20 * spaceship.getSpeed() * Math.cos(Math.toRadians(direction));
         double newX = spaceship.getPosition().getX() + deltaX;
         double newY = spaceship.getPosition().getY() + deltaY;
 

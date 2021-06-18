@@ -49,10 +49,15 @@ public class GameToolBar extends ToolBar {
 
 		this.info.setOnAction(event -> {
 			Alert alert = new Alert(AlertType.INFORMATION,
-					"This describes how to play\n" +
-							"Have Fun!",
+					"How to play: \n" +
+							"Move left: 	  <-- / A \n" +
+							"Move right:    --> / D \n" +
+							"Shoot: 		  space \n" +
+							"Fury Mode: 	  let enemies dance!\n\n" +
+							"Have Fun!\n\n" +
+							"Credit: EiST SoSe21 H02E03 Bumpers",
 					ButtonType.OK);
-			alert.setHeaderText("How to Play");
+			alert.setHeaderText("Info");
 			alert.showAndWait();
 		});
 

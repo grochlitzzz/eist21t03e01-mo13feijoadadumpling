@@ -7,9 +7,14 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
+ *
+ * Reference: EiST H02E03 Bumpers
+ *
  * Starts the Bumpers Application, loads the GameToolBar and GameBoardUI. This
  * class is the root of the JavaFX Application.
  *
