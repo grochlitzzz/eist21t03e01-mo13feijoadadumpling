@@ -21,20 +21,12 @@ import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
-/**
- * This class implements the user interface for steering the player car. The
- * user interface is implemented as a Thread that is started by clicking the
- * start button on the tool bar and stops by the stop button.
- */
 public class GameView extends Canvas {
 
 	private static final Color BACKGROUND_COLOR = Color.WHITE;
 
 //	private static final String BACKGROUND_IMAGE = "background.png";
 
-	/**
-	 * The update period of the game in ms, this gives us 25 fps.
-	 */
 	private static final int UPDATE_PERIOD = 1000 / 25;
 	private static final int DEFAULT_WIDTH = 500;
 	private static final int DEFAULT_HEIGHT = 300;
@@ -44,10 +36,6 @@ public class GameView extends Canvas {
 		return DEFAULT_SIZE;
 	}
 
-	/**
-	 * Timer responsible for updating the game every frame that runs in a separate
-	 * thread.
-	 */
 	private Timer gameTimer;
 
 	private GameController gameController;
@@ -59,6 +47,8 @@ public class GameView extends Canvas {
 	private HashMap<String, Image> imageCache;
 
 	private Policy policy;
+
+	private boolean updated = false;
 
 	public GameView(GameToolBar gameToolBar) {
 		this.gameToolBar = gameToolBar;
@@ -73,10 +63,6 @@ public class GameView extends Canvas {
 		return keyboardSteering;
 	}
 
-	/**
-	 * Removes all existing cars from the game board and re-adds them. Player car is
-	 * reset to default starting position. Renders graphics.
-	 */
 	public void setup() {
 		setupGameBoard();
 		setupImageCache();
@@ -106,19 +92,15 @@ public class GameView extends Canvas {
 		this.imageCache.put(playerImageLocation, getImage(playerImageLocation));
 	}
 
+	// update the Shot image after the game starts running
 	public void updateImageCache() {
-		for (Shot shot : this.gameController.getShots()) {
-			String imageLocation = shot.getIconLocation();
-			this.imageCache.computeIfAbsent(imageLocation, this::getImage);
+		if (!this.gameController.getShots().isEmpty()) {
+			String imageLocation = gameController.getShots().get(0).getIconLocation();
+			this.imageCache.put(imageLocation, getImage(imageLocation));
+			updated = true;
 		}
 	}
 
-	/**
-	 * Sets the car's image.
-	 *
-	 * @param carImageFilePath an image file path that needs to be available in the
-	 *                         resources folder of the project
-	 */
 	private Image getImage(String carImageFilePath) {
 		URL carImageUrl = getClass().getClassLoader().getResource(carImageFilePath);
 		if (carImageUrl == null) {
@@ -128,11 +110,6 @@ public class GameView extends Canvas {
 		return new Image(carImageUrl.toExternalForm());
 	}
 
-	/**
-	 * Starts the GameBoardUI Thread, if it wasn't running. Starts the game board,
-	 * which causes the cars to change their positions (i.e. move). Renders graphics
-	 * and updates tool bar status.
-	 */
 	public void startGame() {
 		if (!this.gameController.isRunning()) {
 			this.gameController.startGame();
@@ -159,10 +136,10 @@ public class GameView extends Canvas {
 
 	private void updateGame() {
 		if (gameController.isRunning()) {
-			// updates car positions and re-renders graphics
 			this.gameController.update();
-			updateImageCache();
-			// when this.gameBoard.getOutcome() is OPEN, do nothing
+			if (!updated) {
+				updateImageCache();
+			}
 			if (this.gameController.getGameOutcome() == GameOutcome.LOST) {
 				showAsyncAlert("Oh.. you lost.");
 				this.stopGame();
@@ -174,9 +151,6 @@ public class GameView extends Canvas {
 		}
 	}
 
-	/**
-	 * Stops the game board and set the tool bar to default values.
-	 */
 	public void stopGame() {
 		if (this.gameController.isRunning()) {
 			this.gameController.stopGame();
@@ -185,10 +159,6 @@ public class GameView extends Canvas {
 		}
 	}
 
-	/**
-	 * Render the graphics of the whole game by iterating through the cars of the
-	 * game board at render each of them individually.
-	 */
 	private void paint() {
 		getGraphicsContext2D().setFill(BACKGROUND_COLOR);
 		getGraphicsContext2D().fillRect(0, 0, getWidth(), getHeight());
@@ -218,11 +188,7 @@ public class GameView extends Canvas {
 		getGraphicsContext2D().drawImage(this.imageCache.get(shot.getIconLocation()), carPosition.getX(),
 				carPosition.getY(), shot.getSize().getWidth(), shot.getSize().getHeight());
 	}
-	/**
-	 * Method used to display alerts in moveCars().
-	 *
-	 * @param message you want to display as a String
-	 */
+
 	private void showAsyncAlert(String message) {
 		Platform.runLater(() -> {
 			Alert alert = new Alert(Alert.AlertType.INFORMATION);
