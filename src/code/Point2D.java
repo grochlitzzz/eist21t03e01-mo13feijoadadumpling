@@ -4,6 +4,9 @@ import java.util.Locale;
 import java.util.Objects;
 
 /**
+ *
+ * Reference: EiST SoSe21 H02E03 Bumpers
+ *
  * Represents a point with x and y coordinate.
  */
 public class Point2D {

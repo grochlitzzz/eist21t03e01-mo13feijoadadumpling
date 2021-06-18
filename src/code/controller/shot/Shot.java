@@ -66,6 +66,7 @@ public class Shot {
 		this.position = new Point2D(this.position.getX(), newY);
 	}
 
+	// used when shot goes outside board or hits spaceship
 	public void remove() {
 		toBeRemoved = true;
 	}

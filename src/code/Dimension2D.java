@@ -4,6 +4,8 @@ import java.util.Locale;
 import java.util.Objects;
 
 /**
+ * Reference: EiST SoSe21 H02E03 Bumpers
+ *
  * Represents a dimension with a width and height.
  */
 public class Dimension2D {

@@ -8,12 +8,14 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 /**
+ *
+ * Reference: EiST SoSe21 H02E03 Bumpers
+ *
  * This class handles the background music played during the game using a JavaFX
  * {@link MediaPlayer}.
  */
 public class AudioPlayer implements AudioPlayerInterface {
 
-    //TODO: find sound files
     private static final String BACKGROUND_MUSIC_FILE = "back.wav";
     private static final String SHOT_SOUND_FILE = "shot.wav";
     private static final String HIT_SOUND_FILE = "hit.wav";

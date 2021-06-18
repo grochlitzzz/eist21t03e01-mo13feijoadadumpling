@@ -20,9 +20,11 @@ import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
+//Reference: EiST SoSe21 H02E03 Bumpers
 public class GameView extends Canvas {
 
 	private static final String BACKGROUND_IMAGE = "background.jpg";
+	// added SHOT image in GameView because there is no Shot created before starting game
 	private static final String SHOT = "Bullet.png";
 	private static final int UPDATE_PERIOD = 1000 / 25;
 	private static final int DEFAULT_WIDTH = 500;

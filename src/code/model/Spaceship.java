@@ -6,8 +6,8 @@ import code.controller.shot.Shot;
 
 public abstract class Spaceship {
 
-	private static final int DEFAULT_SPACESHIP_WIDTH = 25; // YET TO DEFINE
-	private static final int DEFAULT_SPACESHIP_HEIGHT = 25; // YET TO DEFINE
+	private static final int DEFAULT_SPACESHIP_WIDTH = 25;
+	private static final int DEFAULT_SPACESHIP_HEIGHT = 25;
 
 	private double speed;
 	private boolean crunched;

@@ -20,7 +20,6 @@ public class KeyboardSteering {
 		this.gameBoardSize = gameController.getSize();
 		gameView.setFocusTraversable(true);
 		gameView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-			
             @Override
             public void handle(KeyEvent event) {
             	if (event.getCode().getCode() == 68 || event.getCode().getCode() == 39)

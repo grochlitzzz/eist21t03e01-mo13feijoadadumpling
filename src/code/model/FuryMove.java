@@ -3,9 +3,14 @@ package code.model;
 import code.Dimension2D;
 import code.Point2D;
 
+/**
+ * Random Move of Enemy Spaceships
+ *
+ * Reference: EiST SoSe21 H02E03 Bumpers
+ */
+
 public class FuryMove implements MoveStrategy {
 
-    // Reference: EiST L02E03 Bumpers
     protected static final int MAX_ANGLE = 360;
     protected static final int HALF_ANGLE = MAX_ANGLE / 2;
 

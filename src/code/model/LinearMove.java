@@ -3,6 +3,10 @@ package code.model;
 import code.Dimension2D;
 import code.Point2D;
 
+/**
+ * Simply slowly move downwards
+ */
+
 public class LinearMove implements MoveStrategy {
     @Override
     public void updatePosition(Dimension2D gameBoardSize, EnemySpaceship spaceship) {

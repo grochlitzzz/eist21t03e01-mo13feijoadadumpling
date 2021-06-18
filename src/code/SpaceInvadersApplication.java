@@ -13,7 +13,7 @@ import javafx.stage.StageStyle;
 
 /**
  *
- * Reference: EiST H02E03 Bumpers
+ * Reference: EiST SoSe21 H02E03 Bumpers
  *
  * Starts the Bumpers Application, loads the GameToolBar and GameBoardUI. This
  * class is the root of the JavaFX Application.

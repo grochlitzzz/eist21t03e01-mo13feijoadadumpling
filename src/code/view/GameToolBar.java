@@ -5,6 +5,8 @@ import javafx.scene.control.Alert.AlertType;
 
 import java.util.Optional;
 
+//Reference: EiST SoSe21 H02E03 Bumpers
+
 public class GameToolBar extends ToolBar {
 	private final Button start;
 	private final Button stop;
@@ -73,6 +75,7 @@ public class GameToolBar extends ToolBar {
 			updateModeStatus(true);
 		});
 
+		// lose focus of toolbar, so keyboard can work on the canvas
 		start.setFocusTraversable(false);
 		stop.setFocusTraversable(false);
 		info.setFocusTraversable(false);
